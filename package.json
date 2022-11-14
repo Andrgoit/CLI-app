@@ -1,0 +1,25 @@
+{
+  "name": "CLI-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "start:dev": "nodemon index",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andrgoit/CLI-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andrgoit/CLI-app/issues"
+  },
+  "homepage": "https://github.com/Andrgoit/CLI-app#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
