@@ -31,9 +31,9 @@ async function invokeAction({ action, id, name, email, phone }) {
 
     case "add":
       const newContact = await contactsOperations.addContact(
-        name,
-        email,
-        phone
+        String(name),
+        String(email),
+        String(phone)
       );
       console.table(newContact);
       break;
