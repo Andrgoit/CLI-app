@@ -33,13 +33,13 @@ async function getContactById(contactId) {
 }
 
 async function addContact(newName, newEmail, newPhone) {
-  if (!name) {
+  if (!newName) {
     return console.warn("\x1B[31m name is require!");
   }
-  if (!email) {
+  if (!newEmail) {
     return console.warn("\x1B[31m email is require!");
   }
-  if (!phone) {
+  if (!newPhone) {
     return console.warn("\x1B[31m phone is require!");
   }
   const contacts = await listContacts();
