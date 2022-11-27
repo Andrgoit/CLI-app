@@ -24,17 +24,24 @@ async function invokeAction({ action, id, name, email, phone }) {
     case "get":
       const contact = await contactsOperations.getContactById(id);
       if (!contact) {
-        throw new Error(`Contact with id = ${id} not found :(`);
+        throw new Error(
+          `Contact with id = ${id} not found :( === Контакт с id = ${id} не найден!`
+        );
       }
       console.table(contact);
       break;
 
     case "add":
       const newContact = await contactsOperations.addContact(
-        String(name),
-        String(email),
-        String(phone)
+        name,
+        email,
+        phone
       );
+      if (!newContact) {
+        throw new Error(
+          `An error occurred while adding a contact! === При добавлении контакта произошла ошибка`
+        );
+      }
       console.table(newContact);
       break;
 
