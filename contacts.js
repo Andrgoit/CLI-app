@@ -32,7 +32,7 @@ async function getContactById(contactId) {
   return contact;
 }
 
-async function addContact(name, email, phone) {
+async function addContact(newName, newEmail, newPhone) {
   if (!name) {
     return console.warn("\x1B[31m name is require!");
   }
@@ -43,7 +43,12 @@ async function addContact(name, email, phone) {
     return console.warn("\x1B[31m phone is require!");
   }
   const contacts = await listContacts();
+
+  const name = String(newName);
+  const email = String(newEmail);
+  const phone = String(newPhone);
   const id = String(v4());
+
   const newContact = { name, email, phone, id };
   contacts.push(newContact);
   await fs.writeFile(contactsPath, JSON.stringify(contacts));
