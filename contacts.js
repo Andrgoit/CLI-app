@@ -51,7 +51,14 @@ async function addContact(newName, newEmail, newPhone) {
 
   const newContact = { name, email, phone, id };
   contacts.push(newContact);
-  await fs.writeFile(contactsPath, JSON.stringify(contacts));
+
+  // в 56 строке. При записи файла он будт в виде одной строки
+  // await fs.writeFile(contactsPath, JSON.stringify(contacts));
+
+  // в 59 строке. При записи файла он будет отформатировано в обычном виде
+  // null - сколько символов заменить
+  // 2 - количество отступов слева
+  await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
   return newContact;
 }
 
@@ -61,8 +68,8 @@ async function removeContact(contactId) {
   if (idx === -1) {
     return null;
   }
-  const removedContact = contacts.splice(idx, 1);
-  await fs.writeFile(contactsPath, JSON.stringify(contacts));
+  const [removedContact] = contacts.splice(idx, 1);
+  await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
   return removedContact;
 }
 
